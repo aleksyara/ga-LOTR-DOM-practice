@@ -148,9 +148,16 @@ function keepItSecretKeepItSafe() {
 
   // create a div with an id of `'the-ring'`
 
+  let theRing = document.createElement("div");
+  theRing.id = "the-ring";
+   
   // give the div a class of `'magic-imbued-jewelry'`
+  theRing.className = 'magic-imbued-jewelry';
 
   // add the ring as a child of `Frodo`
+//selecting Frodo
+let Frodo = document.querySelectorAll('.hobbit')[0];
+Frodo.appendChild(theRing);
 
 }
 
