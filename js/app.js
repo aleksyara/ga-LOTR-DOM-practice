@@ -37,24 +37,72 @@ const lands = [
 function makeMiddleEarth () { 
   console.log("1: makeMiddleEarth");
 
+  //this code below didn't work.
   // 1. create a section tag with an id of middle-earth
 
+//   const middleEarthSection = document.createElement('secion').innerHTML = `<section id="middle-earth"></section>`;
+
+
+//   // 2. use a for loop to iterate over the lands array that does the following:
+
+//         for (let idx = 0; idx < lands.length; idx++) {
+
+//   //   2a. creates an article tag (there should be one for each land when the loop is done)
+//         let newLandArticle = document.createElement('article');
+//   //   2b. gives each land article an `id` tag of the corresponding land name
+//          newLandArticle.setAttribute("id", lands(idx)); // set id w/name lands
+
+//   //   2c. includes an h1 with the name of the land inside each land article
+//          //let landH1 = newLandArticle.appendChild("h1"); 
+//          //first we need to creatr new h1
+
+//          let newLandArticle = document.createElement('h1');
+//          //set h1 content to name of Land and give id
+//          //innerHTML gives the flexabilty and instead of 3 lines above =I can write in one
+//          //landArticleTitle.innerHTML = `<h1 id=${lands[idx]}>${lands[idx]}</h1>`;
+//          // or other way
+//          let landArticleTitle = document.createElement.createElement("h1");
+//          //set new h1  to new article
+//          landArticleTitle.setAttribute("id", lands[idx]);
+//          landArticleTitle.textContent = lands[idx];
+
+
+//          //append new h1 to new article
+// newLandArticle.appendChild(newLandArticleTitle);
+
+//   //   2d. appends each land to the middle-earth section
+//   middleEarthSection.appendChild(newLandArticle);
+// }
+//   // 3. append the section to the body of the DOM.
+  
+//   document.body.appendChild(middleEarthSection);
+
+// }
+
+// FIXED CODE BELLOW
+  // 1. create a section tag with an id of middle-earth
+   const middleEarthSection = document.createElement('section');
+   middleEarthSection.setAttribute("id", "middle-earth");
   // 2. use a for loop to iterate over the lands array that does the following:
-
+      for (let idx = 0; idx < lands.length; idx++) {
   //   2a. creates an article tag (there should be one for each land when the loop is done)
-
+         let newLandArticle = document.createElement('article');
   //   2b. gives each land article an `id` tag of the corresponding land name
-
+         newLandArticle.setAttribute("id", lands[idx]);
   //   2c. includes an h1 with the name of the land inside each land article
-
+         // first we need to make a new h1 to attach to new article
+         let landArticleTitle = document.createElement("h1");
+         // set h1 content to name of land and give id
+         landArticleTitle.setAttribute("id", lands[idx]);
+         landArticleTitle.textContent = lands[idx];
+         // append new h1 to new article
+         newLandArticle.appendChild(landArticleTitle);
   //   2d. appends each land to the middle-earth section
-
+         middleEarthSection.appendChild(newLandArticle);
+      }
   // 3. append the section to the body of the DOM.
-
+   document.body.appendChild(middleEarthSection);
 }
-
-
-
 
 // COMMIT YOUR WORK
 // The commit message should read: "Chapter 1 complete - Made Middle Earth".
